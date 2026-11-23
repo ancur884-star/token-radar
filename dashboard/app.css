@@ -1,0 +1,54 @@
+:root{--bg:#0d1420;--panel:#131c2c;--panel2:#182437;--line:#26344d;--ink:#e8eef7;--mut:#9fb0c8;--acc:#f5b301;--teal:#2dd4a7;--red:#ff6b6b;--blue:#6ea8ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.top{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:flex-start;padding:20px 22px 14px;border-bottom:3px solid var(--acc)}
+.brand{display:flex;gap:12px;align-items:flex-start}
+.dot{width:16px;height:16px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 5px rgba(245,179,1,.18);margin-top:8px;flex:none}
+h1{margin:0;font-size:26px;letter-spacing:.12em}
+.top p{margin:2px 0 0;color:var(--mut);max-width:640px}
+.meta{margin:0;font-size:13px;color:var(--mut);text-align:right;max-width:340px}
+.tabs{display:flex;gap:8px;padding:12px 22px 0}
+.tabs button{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px 8px 0 0;padding:9px 18px;font-size:14px;cursor:pointer}
+.tabs button.on{background:var(--acc);color:#14100a;border-color:var(--acc);font-weight:700}
+main{padding:16px 22px 8px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:end;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}
+.controls label{font-size:12px;color:var(--mut);display:flex;flex-direction:column;gap:4px}
+.controls label.check{flex-direction:row;align-items:center;gap:6px;padding-bottom:6px}
+input,select{background:#0b1220;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-size:14px}
+input:focus,select:focus,button:focus{outline:2px solid var(--acc);outline-offset:1px}
+.count{color:var(--mut);font-size:13px;margin:12px 0 8px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;background:var(--panel);font-size:14px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th{background:var(--panel2);color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:#1b2a44}
+tbody tr.sel{background:#22344f;box-shadow:inset 3px 0 0 var(--acc)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.pos{color:var(--teal)} .neg{color:var(--red)}
+.pill{display:inline-block;font-size:11px;font-weight:700;border-radius:20px;padding:2px 8px;background:#26344d;color:var(--ink)}
+.pill.wl{background:var(--acc);color:#14100a}
+.name{font-weight:700;white-space:normal;min-width:170px}
+.sub{font-size:12px;color:var(--mut);font-weight:400}
+.rangebar{height:6px;background:#0b1220;border-radius:3px;margin-top:4px;min-width:120px;position:relative}
+.rangebar i{position:absolute;top:0;bottom:0;background:var(--acc);border-radius:3px}
+.pager{display:flex;gap:12px;align-items:center;justify-content:center;margin:14px 0}
+.pager button{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:8px 14px;cursor:pointer}
+.pager button:disabled{opacity:.4;cursor:default}
+.detail{margin:18px 0;border:1px solid var(--acc);border-radius:12px;background:var(--panel);padding:18px}
+.detail h2{margin:0 0 4px;font-size:22px}
+.detail h3{margin:18px 0 8px;font-size:15px;color:var(--acc);text-transform:uppercase;letter-spacing:.06em}
+.math{width:100%;border-collapse:collapse}
+.math td{border-bottom:1px solid var(--line);padding:7px 4px;white-space:normal}
+.math td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.steps{margin:0;padding-left:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;margin:0 0 10px;padding-left:38px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--acc);color:#14100a;font-weight:700;text-align:center;line-height:26px;font-size:13px}
+.steps .ct{color:var(--mut);font-size:13px}
+.lede{color:var(--mut);max-width:760px}
+.formula{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:8px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px}
+#modelbody table{font-size:13px}
+#modelbody td{white-space:normal}
+.caveats{color:var(--mut);max-width:760px}
+footer{padding:6px 22px 20px;color:var(--mut);font-size:12px}
+@media (max-width:720px){.meta{text-align:left}h1{font-size:21px}body{font-size:14px}}

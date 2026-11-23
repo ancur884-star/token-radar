@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by expected launch value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="dot" aria-hidden="true"></span><div><h1>TOKEN RADAR</h1><p>Every protocol that records no token, ranked by what its token would be worth if it launched.</p></div></div>
+  <p class="meta" id="meta">Loading the sealed snapshot…</p>
+</header>
+<nav class="tabs" aria-label="Views">
+  <button type="button" data-view="board" class="on">Board</button>
+  <button type="button" data-view="live">Live tokens</button>
+  <button type="button" data-view="model">Model &amp; checks</button>
+</nav>
+<main>
+  <section id="view-board">
+    <section id="detail" class="detail" hidden></section>
+    <div class="controls" id="controls">
+      <label>Search <input id="q" type="search" placeholder="Name or slug…" autocomplete="off"></label>
+      <label>Category <select id="cat"><option value="">All categories</option></select></label>
+      <label>Chain <select id="chain"><option value="">All chains</option></select></label>
+      <label>Sort <select id="sort">
+        <option value="value">Implied value</option><option value="tvl">TVL</option>
+        <option value="growth">7-day growth</option><option value="odds">Launch odds</option>
+        <option value="age">Age</option><option value="name">Name A–Z</option>
+      </select></label>
+      <label>Min TVL <select id="mintvl">
+        <option value="0">Any</option><option value="50000000">$50M+</option>
+        <option value="100000000">$100M+</option><option value="500000000">$500M+</option>
+      </select></label>
+      <label class="check"><input id="watch" type="checkbox"> Watchlist only</label>
+    </div>
+    <p class="count" id="count"></p>
+    <div class="tablewrap"><table id="board">
+      <thead><tr><th>#</th><th>Protocol</th><th>Category</th><th>Chains</th><th class="num">TVL</th><th class="num">7d</th><th class="num">Age</th><th class="num">Odds</th><th class="num">Implied value</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <div class="pager"><button type="button" id="prev">← Prev</button><span id="pageinfo"></span><button type="button" id="next">Next →</button></div>
+  </section>
+  <section id="view-live" hidden>
+    <p class="lede">These protocols already record a token, so the board shows the market's own value — market cap — not a model. They are the peer group the pre-token values are priced from, and they are never ranked on the board.</p>
+    <div class="tablewrap"><table id="livetable">
+      <thead><tr><th>Protocol</th><th>Category</th><th class="num">TVL</th><th class="num">Market cap</th><th class="num">Mcap / TVL</th><th class="num">7d</th></tr></thead>
+      <tbody id="liverows"></tbody>
+    </table></div>
+  </section>
+  <section id="view-model" hidden>
+    <h2>How the value is made</h2>
+    <p class="lede">Implied value is an <strong>expected value</strong>: the peer-implied value of a token if it launched today, times the snapshot-derived odds that it ever launches. It is this entry's claim, never a prediction that a token will be issued, or when.</p>
+    <p class="formula">implied = TVL × peer multiple × growth × maturity × launch odds</p>
+    <div id="modelbody"></div>
+    <h2>What this radar does not claim</h2>
+    <ul class="caveats">
+      <li>“Records no token” means DefiLlama's record carries no token — not that the protocol has none. A protocol on the board may still have a token its record does not carry.</li>
+      <li>A farm plan is not a promise of an airdrop. A token is not guaranteed, and farming can lose money to fees and smart-contract risk.</li>
+      <li>Never pay to claim a token, and claim only from a link the protocol itself publishes.</li>
+    </ul>
+  </section>
+</main>
+<footer><p>Snapshot: DefiLlama protocols, fetched once and frozen. Model radar-2. Implied values are the entry's own claim.</p></footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
